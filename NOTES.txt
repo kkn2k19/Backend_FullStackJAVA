@@ -1,0 +1,36 @@
+// IDE : SPRING TOOLS SUITE (in class)
+// IDE : VS CODE / ECLIPSE (me)
+// JDK : 17
+
+// Day 1 
+// 21.02.2025
+// Mysql -- in command line
+// DBMS -- tables
+// Maven 
+// Practicals : 
+    1. TestMaven
+    2. TestMaven1
+
+// Day 2
+// 22.02.2025
+// JDBC
+// JDBC Configuration
+// Practicals : 
+    1. JdbcDemo
+    2. HibernateAll
+
+// Day 3 
+// 23.02.2025
+// Hibernate
+// CRUD operations
+// Spring
+// Practicals : 
+    1. HibernateAll
+    2. SpringAll
+    3. SpringWithLombok
+
+// Day 4
+// 24.02.2025
+// Spring Boot
+// Practicals : 
+    1.
