@@ -33,4 +33,10 @@
 // 24.02.2025
 // Spring Boot
 // Practicals : 
-    1.
+    1. ReadingProperties
+    2. ReadingYML
+    3. BootDemo
+    4. BootJdbc
+    5. BootSetterInjection
+    6. BootDataJpa
+    7. BootRegister
