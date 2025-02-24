@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.karan</groupId>
-	<artifactId>readingproperties</artifactId>
+	<artifactId>reading_properties</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>readingproperties</name>
+	<name>reading_properties</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
