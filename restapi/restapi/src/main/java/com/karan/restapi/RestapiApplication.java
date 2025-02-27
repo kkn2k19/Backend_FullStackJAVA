@@ -9,9 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "com.karan")
 @EntityScan(basePackages = "com.karan")
 public class RestapiApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(RestapiApplication.class, args);
 	}
-
 }
