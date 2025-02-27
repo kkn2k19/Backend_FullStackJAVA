@@ -1,0 +1,211 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.40 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| aecdbst            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> create database demodb;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use demodb;
+Database changed
+mysql> create table customer
+    -> ( cid varchar(10),
+    -> cname varchar(25),
+    -> cphno varchar(10)
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> create table product
+    -> ( pid varchar(10),
+    -> pname varchar(25) not null,
+    -> pqty int,
+    -> price decimal,
+    -> constraint product_pid_pk primary key(pid)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into product values ('P1', 'TV', 5, 25000);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into product values ('P2', 'TAB', 2, 22000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from product;
++-----+-------+------+-------+
+| pid | pname | pqty | price |
++-----+-------+------+-------+
+| P1  | TV    |    5 | 25000 |
+| P2  | TAB   |    2 | 22000 |
++-----+-------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> create table account
+    -> (accno varchar(10),
+    -> cname varchar(25) not null,
+    -> balance decimal,
+    -> constraint account_accno_pk primary key(accno)
+    -> );
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> desc account;
++---------+---------------+------+-----+---------+-------+
+| Field   | Type          | Null | Key | Default | Extra |
++---------+---------------+------+-----+---------+-------+
+| accno   | varchar(10)   | NO   | PRI | NULL    |       |
+| cname   | varchar(25)   | NO   |     | NULL    |       |
+| balance | decimal(10,0) | YES  |     | NULL    |       |
++---------+---------------+------+-----+---------+-------+
+3 rows in set (0.12 sec)
+
+mysql> select * from account;
+Empty set (0.02 sec)
+
+mysql> select * from account;
++-------+-------+---------+
+| accno | cname | balance |
++-------+-------+---------+
+| 100   | Suman |   15000 |
++-------+-------+---------+
+1 row in set (0.01 sec)
+
+mysql> select * from account;
++-------+---------+---------+
+| accno | cname   | balance |
++-------+---------+---------+
+| 100   | Suman   |   15000 |
+| 101   | Kaushik |   20000 |
++-------+---------+---------+
+2 rows in set (0.01 sec)
+
+mysql> select * from job;
+ERROR 1146 (42S02): Table 'demodb.job' doesn't exist
+mysql> select * from job;
+ERROR 1146 (42S02): Table 'demodb.job' doesn't exist
+mysql> select * from job;
+ERROR 1146 (42S02): Table 'demodb.job' doesn't exist
+mysql> select * from job;
+ERROR 1146 (42S02): Table 'demodb.job' doesn't exist
+mysql> select * from job;
+Empty set (0.02 sec)
+
+mysql> select * from job;
+Empty set (0.01 sec)
+
+mysql> drop table job;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from job;
+ERROR 1146 (42S02): Table 'demodb.job' doesn't exist
+mysql> select * from job;
+Empty set (0.04 sec)
+
+mysql> desc job;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| jobid  | varchar(10) | NO   | PRI | NULL    |       |
+| compnm | varchar(25) | NO   |     | NULL    |       |
+| jobnm  | varchar(25) | NO   |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from job;
++-------+-----------+-------------+
+| jobid | compnm    | jobnm       |
++-------+-----------+-------------+
+| J1    | Capgemini | SPRING BOOT |
++-------+-----------+-------------+
+1 row in set (0.01 sec)
+
+mysql> select * from job;
++-------+-----------+-------------+
+| jobid | compnm    | jobnm       |
++-------+-----------+-------------+
+| J1    | Capgemini | SPRING BOOT |
+| J2    | TCS       | DOTNET      |
++-------+-----------+-------------+
+2 rows in set (0.01 sec)
+
+mysql> select * from job;
++-------+--------+--------+
+| jobid | compnm | jobnm  |
++-------+--------+--------+
+| J2    | TCS    | DOTNET |
++-------+--------+--------+
+1 row in set (0.01 sec)
+
+mysql> select * from job;
++-------+-----------+------------+
+| jobid | compnm    | jobnm      |
++-------+-----------+------------+
+| J2    | CAPGEMINI | SPRINGBOOT |
++-------+-----------+------------+
+1 row in set (0.01 sec)
+
+mysql> select * from register;
++-------+-------+-------+------+-------------------+
+| phno  | uname | nm    | pass | email             |
++-------+-------+-------+------+-------------------+
+| 93043 | root  | Karan | 1448 | kkn2k19@gmail.com |
++-------+-------+-------+------+-------------------+
+1 row in set (0.01 sec)
+
+mysql> select * from register;
++-------+-------+-------+------+-------------------+
+| phno  | uname | nm    | pass | email             |
++-------+-------+-------+------+-------------------+
+| 93043 | root  | Karan | 1448 | kkn2k19@gmail.com |
+| 5656  | root1 | KKN   | 14   | kkn@gmail.com     |
++-------+-------+-------+------+-------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from register;
++-------+-------+-------+------+-------------------+
+| phno  | uname | nm    | pass | email             |
++-------+-------+-------+------+-------------------+
+| 93043 | root  | Karan | 1448 | kkn2k19@gmail.com |
++-------+-------+-------+------+-------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from register;
++--------+-------+---------+------+-------------------+
+| phno   | uname | nm      | pass | email             |
++--------+-------+---------+------+-------------------+
+| 789789 | root  | Chandan | 2001 | kkn2k19@gmail.com |
++--------+-------+---------+------+-------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from product;
++-----+-------+------+-------+
+| pid | pname | pqty | price |
++-----+-------+------+-------+
+| P1  | TV    |    5 | 25000 |
+| P2  | TAB   |    2 | 22000 |
++-----+-------+------+-------+
+2 rows in set (0.03 sec)
+
+mysql> select * from prd;
+ERROR 1146 (42S02): Table 'demodb.prd' doesn't exist
+mysql>

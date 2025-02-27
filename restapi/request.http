@@ -1,0 +1,13 @@
+# POST http://localhost:1005/product/add HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "pid" : "P1",
+#     "pname" : "WASHING MACHINE",
+#     "pqty" : "2",
+#     "price": "25000"
+# }
+
+
+GET http://localhost:1005/product/fetch HTTP/1.1
+Content-Type: application/json
