@@ -68,4 +68,4 @@ This repository contains all backend development learning resources, projects, a
 ---
 
 ✅ Database Configuration (If Needed)
-For projects using JPA/Hibernate/JDBC, update application.properties or application.yml with your database credentials before running.
+For projects using **JPA/Hibernate/JDBC**, update `application.properties` or `application.yml` with your database credentials before running.
