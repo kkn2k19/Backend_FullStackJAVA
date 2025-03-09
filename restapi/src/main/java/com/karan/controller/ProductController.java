@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.karan.service.ProductService;
 
 @RestController
 @RequestMapping("/product")
+@CrossOrigin(origins = "http://localhost:3000/") // Allow frontend requests
 public class ProductController {
     @Autowired
     private ProductService pservice;
@@ -45,11 +47,24 @@ public class ProductController {
         return new ResponseEntity<Product>(p, HttpStatus.OK);
     }
 
+    // // UPDATE
+    // @PutMapping("/update/{pid}")
+    // public ResponseEntity<Product> updateProduct(@PathVariable String pid,
+    // @RequestBody Product pNew) {
+    // Product pOld = pservice.updateData(pid, pNew);
+    // return new ResponseEntity<Product>(pOld, HttpStatus.OK);
+    // }
+
     // UPDATE
     @PutMapping("/update/{pid}")
-    public ResponseEntity<Product> updateProduct(@PathVariable String pid, @RequestBody Product pNew) {
-        Product pOld = pservice.updateData(pid, pNew);
-        return new ResponseEntity<Product>(pOld, HttpStatus.OK);
+    public ResponseEntity<String> updateProduct(@PathVariable String pid, @RequestBody Product product) {
+        Product p = pservice.getDataById(pid);
+        if (p != null) {
+            pservice.updateData(pid, product);
+            return new ResponseEntity<String>("Product updated successfully", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<String>("Product not found", HttpStatus.NOT_FOUND);
+        }
     }
 
     // DELETE
